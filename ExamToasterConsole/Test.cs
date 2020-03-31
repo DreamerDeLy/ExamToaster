@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ExamToasterConsole
 {
@@ -33,9 +32,4 @@ namespace ExamToasterConsole
         public List<Question> questions { get; set; }
         public List<Rating> ratings { get; set; }
     }
-
-    class Toast
-	{
-		///
-	}
 }
