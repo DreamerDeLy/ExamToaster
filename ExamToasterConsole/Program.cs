@@ -11,9 +11,15 @@ namespace ExamToasterConsole
 		{
 			Console.WriteLine("ExamToasterConsole");
 
-			string file_path = "D:\\TOSTER_test.json";
+			string file_path = @"D:\TOSTER_test.zip";
+			string extract_path = @".\extract\";
 
-			string jsonString = File.ReadAllText(file_path);
+			if (Directory.Exists(extract_path)) Directory.Delete(extract_path, true);
+			ZipFile.ExtractToDirectory(file_path, extract_path);
+
+			string jsonString = File.ReadAllText(extract_path + "TOSTER_test.json");
+			Console.WriteLine($"json string: \n{jsonString}");
+
 			Test restoredTest = JsonSerializer.Deserialize<Test>(jsonString);
 
 			Console.WriteLine($"Test title:\n {restoredTest.title} \nDescription:\n {restoredTest.description} \nAuthor:\n {restoredTest.author}\n");
