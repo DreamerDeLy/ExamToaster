@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonTest", "JsonTest\JsonTest.csproj", "{52D95CBC-FD32-4460-AF95-37F24448E919}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonTest", "JsonTest\JsonTest.csproj", "{52D95CBC-FD32-4460-AF95-37F24448E919}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamToasterConsole", "ExamToasterConsole\ExamToasterConsole.csproj", "{2DCF6849-E3F7-4A77-A4F0-3CFE8C76B0BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamToasterConsole", "ExamToasterConsole\ExamToasterConsole.csproj", "{2DCF6849-E3F7-4A77-A4F0-3CFE8C76B0BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormDesign", "FormDesign\FormDesign.csproj", "{ACA58100-5F22-453C-A0F3-3F65679EA399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamToasterVisual", "ExamToasterVisual\ExamToasterVisual.csproj", "{D5544EE7-E4B9-4A6E-AA79-5A67B1428BB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{2DCF6849-E3F7-4A77-A4F0-3CFE8C76B0BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DCF6849-E3F7-4A77-A4F0-3CFE8C76B0BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DCF6849-E3F7-4A77-A4F0-3CFE8C76B0BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACA58100-5F22-453C-A0F3-3F65679EA399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA58100-5F22-453C-A0F3-3F65679EA399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA58100-5F22-453C-A0F3-3F65679EA399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA58100-5F22-453C-A0F3-3F65679EA399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5544EE7-E4B9-4A6E-AA79-5A67B1428BB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5544EE7-E4B9-4A6E-AA79-5A67B1428BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5544EE7-E4B9-4A6E-AA79-5A67B1428BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5544EE7-E4B9-4A6E-AA79-5A67B1428BB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
