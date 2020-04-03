@@ -12,6 +12,8 @@ namespace ExamToasterVisual
 {
 	public partial class Form1 : Form
 	{
+		static Toaster toaster = new Toaster();
+
 		public Form1()
 		{
 			InitializeComponent();
@@ -23,7 +25,11 @@ namespace ExamToasterVisual
 
 		private void btnStart_Click(object sender, EventArgs e)
 		{
-			//
+			if (openFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				string path = openFileDialog.FileName;
+				toaster.OpenFile(path);
+			}
 		}
 	}
 }

@@ -54,6 +54,7 @@
 			this.btnNext = new System.Windows.Forms.Button();
 			this.btnPrevious = new System.Windows.Forms.Button();
 			this.tableLayoutPanel2.SuspendLayout();
+			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.flpVariants.SuspendLayout();
 			this.pnlRadiobutton.SuspendLayout();
 			this.pnlCheckbox.SuspendLayout();
@@ -342,6 +343,11 @@
 			this.btnPrevious.Text = "<";
 			this.btnPrevious.UseVisualStyleBackColor = true;
 			// 
+			// openFileDialog
+			// 
+			this.openFileDialog.FileName = "test.tst";
+			this.openFileDialog.Filter = "Test files|.tst|All files|*.*";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,6 +399,7 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Button btnNext;
 		private System.Windows.Forms.Button btnPrevious;
+		private System.Windows.Forms.OpenFileDialog openFileDialog;
 	}
 }
 

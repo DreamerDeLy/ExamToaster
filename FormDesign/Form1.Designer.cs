@@ -53,6 +53,7 @@
 			this.rtbDescription = new System.Windows.Forms.RichTextBox();
 			this.lblCaption = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.flpVariants.SuspendLayout();
 			this.pnlCheckbox.SuspendLayout();
@@ -342,6 +343,10 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(758, 458);
 			this.tableLayoutPanel1.TabIndex = 0;
 			// 
+			// openFileDialog
+			// 
+			this.openFileDialog.FileName = "openFileDialog1";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,6 +398,7 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Button btnNext;
 		private System.Windows.Forms.Button btnPrevious;
+		private System.Windows.Forms.OpenFileDialog openFileDialog;
 	}
 }
 
