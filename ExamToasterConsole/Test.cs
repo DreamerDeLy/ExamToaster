@@ -15,6 +15,7 @@ namespace ExamToasterConsole
         public string title { get; set; }
         public string text { get; set; }
         public string image { get; set; }
+        public bool multiply { get; set; }
         public List<Variant> variants { get; set; }
     }
 
@@ -29,6 +30,7 @@ namespace ExamToasterConsole
         public string title { get; set; }
         public string description { get; set; }
         public string author { get; set; }
+        public string image { get; set; }
         public List<Question> questions { get; set; }
         public List<Rating> ratings { get; set; }
     }

@@ -11,7 +11,7 @@ namespace ExamToasterConsole
 		{
 			Console.WriteLine("ExamToasterConsole");
 
-			string file_path = @"D:\TOSTER_test.tst";
+			string file_path = @"D:\TOSTER_test.zip";
 			Toaster toast = new Toaster(file_path);
 			
 			Console.WriteLine("\n OPEN \n===============================================================");

@@ -28,7 +28,7 @@ namespace ExamToasterConsole
 
             ZipFile.ExtractToDirectory(file_path, extract_path);
 
-            string jsonString = File.ReadAllText(extract_path + "TOSTER_test.json");
+            string jsonString = File.ReadAllText(extract_path + "test.json");
             Console.WriteLine($"json string: \n{jsonString}");
 
             test = JsonSerializer.Deserialize<Test>(jsonString);
