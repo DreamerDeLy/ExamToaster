@@ -5,7 +5,7 @@ using System.IO;
 using System.Text.Json;
 using System.IO.Compression;
 
-namespace ExamToasterConsole
+namespace ExamToasterVisual
 {
     class Toaster
 	{
@@ -16,6 +16,8 @@ namespace ExamToasterConsole
 
         double rating = 0;
         int n_question = 0;
+
+        bool started = false;
 
         public Toaster()
         {
@@ -42,7 +44,17 @@ namespace ExamToasterConsole
             //
         }
 
-        public void Question(int n)
+        public void QuestionNext()
+        {
+            //
+        }
+
+        public void QuestionPrevious()
+        {
+            //
+        }
+
+        private void Question(int n)
         {
             //
         }
