@@ -48,7 +48,7 @@
 			this.cbVariant6 = new System.Windows.Forms.CheckBox();
 			this.tlpInfo = new System.Windows.Forms.TableLayoutPanel();
 			this.rtbDescription = new System.Windows.Forms.RichTextBox();
-			this.pnImage = new System.Windows.Forms.PictureBox();
+			this.pbImage = new System.Windows.Forms.PictureBox();
 			this.lblCaption = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnNext = new System.Windows.Forms.Button();
@@ -59,7 +59,7 @@
 			this.pnlRadiobutton.SuspendLayout();
 			this.pnlCheckbox.SuspendLayout();
 			this.tlpInfo.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pnImage)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -258,7 +258,7 @@
 			this.tlpInfo.ColumnCount = 2;
 			this.tlpInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tlpInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tlpInfo.Controls.Add(this.pnImage, 0, 0);
+			this.tlpInfo.Controls.Add(this.pbImage, 0, 0);
 			this.tlpInfo.Controls.Add(this.rtbDescription, 1, 0);
 			this.tlpInfo.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tlpInfo.Location = new System.Drawing.Point(3, 35);
@@ -278,20 +278,21 @@
 			this.rtbDescription.Name = "rtbDescription";
 			this.rtbDescription.Size = new System.Drawing.Size(364, 241);
 			this.rtbDescription.TabIndex = 1;
+			this.rtbDescription.ReadOnly = true;
 			//this.rtbDescription.Text = resources.GetString("rtbDescription.Text");
 			// 
 			// pnImage
 			// 
-			this.pnImage.BackColor = System.Drawing.SystemColors.Window;
-			this.pnImage.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pbImage.BackColor = System.Drawing.SystemColors.Window;
+			this.pbImage.Dock = System.Windows.Forms.DockStyle.Fill;
 			//this.pnImage.Image = ((System.Drawing.Image)(resources.GetObject("pnImage.Image")));
-			this.pnImage.Location = new System.Drawing.Point(6, 6);
-			this.pnImage.Margin = new System.Windows.Forms.Padding(6);
-			this.pnImage.Name = "pnImage";
-			this.pnImage.Size = new System.Drawing.Size(364, 241);
-			this.pnImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pnImage.TabIndex = 0;
-			this.pnImage.TabStop = false;
+			this.pbImage.Location = new System.Drawing.Point(6, 6);
+			this.pbImage.Margin = new System.Windows.Forms.Padding(6);
+			this.pbImage.Name = "pnImage";
+			this.pbImage.Size = new System.Drawing.Size(364, 241);
+			this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pbImage.TabIndex = 0;
+			this.pbImage.TabStop = false;
 			// 
 			// lblCaption
 			// 
@@ -366,7 +367,7 @@
 			this.pnlCheckbox.ResumeLayout(false);
 			this.pnlCheckbox.PerformLayout();
 			this.tlpInfo.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pnImage)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.ResumeLayout(false);
@@ -393,7 +394,7 @@
 		private System.Windows.Forms.RadioButton rbVariant1;
 		private System.Windows.Forms.Button btnStart;
 		private System.Windows.Forms.TableLayoutPanel tlpInfo;
-		private System.Windows.Forms.PictureBox pnImage;
+		private System.Windows.Forms.PictureBox pbImage;
 		private System.Windows.Forms.RichTextBox rtbDescription;
 		private System.Windows.Forms.Label lblCaption;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

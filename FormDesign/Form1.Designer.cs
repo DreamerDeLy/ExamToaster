@@ -310,6 +310,7 @@
 			this.rtbDescription.Location = new System.Drawing.Point(382, 6);
 			this.rtbDescription.Margin = new System.Windows.Forms.Padding(6);
 			this.rtbDescription.Name = "rtbDescription";
+			this.rtbDescription.ReadOnly = true;
 			this.rtbDescription.Size = new System.Drawing.Size(364, 209);
 			this.rtbDescription.TabIndex = 1;
 			this.rtbDescription.Text = resources.GetString("rtbDescription.Text");

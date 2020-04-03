@@ -21,6 +21,11 @@ namespace ExamToasterVisual
 			pnlRadiobutton.Visible = false;
 
 			btnStart.Visible = true;
+
+			btnNext.Visible = false;
+			btnPrevious.Visible = false;
+
+			lblCaption.Text = "ExamToaster by DeLy";
 		}
 
 		private void btnStart_Click(object sender, EventArgs e)
