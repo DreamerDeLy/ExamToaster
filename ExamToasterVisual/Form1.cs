@@ -15,7 +15,15 @@ namespace ExamToasterVisual
 		public Form1()
 		{
 			InitializeComponent();
+			pnlCheckbox.Visible = false;
+			pnlRadiobutton.Visible = false;
+
+			btnStart.Visible = true;
 		}
 
+		private void btnStart_Click(object sender, EventArgs e)
+		{
+			//
+		}
 	}
 }
