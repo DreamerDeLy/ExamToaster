@@ -56,7 +56,101 @@ namespace ExamToasterVisual
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
 				string path = openFileDialog.FileName;
-				toaster.OpenFile(path);
+
+				if (toaster.OpenFile(path))
+				{
+					toaster.StartTest();
+
+					LoadQuestion(toaster.QuestionNext());
+
+					btnNext.Visible = true;
+					btnPrevious.Visible = true;
+				}
+				else
+				{
+					MessageBox.Show("Error while opening file!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+		}
+
+		private void btnNext_Click(object sender, EventArgs e) 
+		{
+			ToasterAnswer answer = new ToasterAnswer();
+
+			if (toaster.current_question.multiply)
+			{
+				for(int i = 0; i < cbs.Count; i++)
+				{
+					answer.answers.Add(cbs[i].Checked);
+				}
+			}
+			else
+			{
+				for (int i = 0; i < rbs.Count; i++)
+				{
+					answer.answers.Add(rbs[i].Checked);
+				}
+			}
+
+			toaster.ReadAnswer(toaster.current_question, answer);
+
+			MessageBox.Show($"rating:{toaster.rating}");
+
+			LoadQuestion(toaster.QuestionNext());
+		}
+		private void btnPrevious_Click(object sender, EventArgs e) 
+		{
+			toaster.QuestionPrevious();
+		}
+
+		private void LoadQuestion(Question q)
+		{
+			string title = q.title;
+			string text = q.text;
+
+			string image = toaster.extract_path + q.image;
+
+			lblCaption.Text = title;
+			rtbDescription.Text = text;
+			pbImage.Image = Image.FromFile(image);
+
+			btnStart.Visible = false;
+
+			foreach (RadioButton r in rbs)
+			{
+				r.Visible = false;
+			}
+
+			foreach (CheckBox c in cbs)
+			{
+				c.Visible = false;
+			}
+
+			if (q.multiply)
+			{
+				pnlCheckbox.Visible = true;
+				pnlRadiobutton.Visible = false;
+
+				int c = q.variants.Count;
+
+				for (int i = 0; i < c; i++)
+				{
+					cbs[i].Visible = true;
+					cbs[i].Text = q.variants[i].title;
+				}
+			}
+			else
+			{
+				pnlCheckbox.Visible = false;
+				pnlRadiobutton.Visible = true;
+
+				int c = q.variants.Count;
+
+				for (int i = 0; i < c; i++)
+				{
+					rbs[i].Visible = true;
+					rbs[i].Text = q.variants[i].title;
+				}
 			}
 		}
 	}
