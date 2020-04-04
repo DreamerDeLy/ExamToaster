@@ -7,56 +7,99 @@ using System.IO.Compression;
 
 namespace ExamToasterVisual
 {
-    class Toaster
+	class ToasterAnswer
 	{
-        public Test test;
+		public List<bool> answers = new List<bool> { };
+	}
 
-        private string file_path = @"D:\TOSTER_test.tst";
-        private string extract_path = @".\extract\";
+	class Toaster
+	{
+		public Test test;
 
-        double rating = 0;
-        int n_question = 0;
+		public string file_path = @"D:\TOSTER_test.tst";
+		public string extract_path = @".\extract\";
 
-        bool started = false;
+		public double rating = 0;
+		public int question = 0;
 
-        public Toaster()
-        {
-            //
-        }
+		public bool started = false; 
 
-        public bool OpenFile(string path)
-        {
-            this.file_path = path;
+		public Question current_question;
 
-            if (Directory.Exists(extract_path)) Directory.Delete(extract_path, true);
+		public Toaster()
+		{
+			//
+		}
 
-            ZipFile.ExtractToDirectory(file_path, extract_path);
+		public bool OpenFile(string path)
+		{
+			this.file_path = path;
 
-            string jsonString = File.ReadAllText(extract_path + "test.json");
+			try
+			{
+				//if (Directory.Exists(extract_path)) Directory.Delete(extract_path, true);
 
-            test = JsonSerializer.Deserialize<Test>(jsonString);
+				//ZipFile.ExtractToDirectory(file_path, extract_path);
 
-            return true;
-        }
+				string jsonString = File.ReadAllText(extract_path + "test.json");
 
-        public void StartTest()
-        {
-            //
-        }
+				test = JsonSerializer.Deserialize<Test>(jsonString);
 
-        public void QuestionNext()
-        {
-            //
-        }
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
+		}
 
-        public void QuestionPrevious()
-        {
-            //
-        }
+		public void StartTest()
+		{
+			started = true;
+			question = 0;
+		}
 
-        private void Question(int n)
-        {
-            //
-        }
-    }
+		public Question QuestionNext()
+		{
+			if (question + 1 < test.questions.Count) 
+				return Question(question++);
+			else 
+				return Question(question);
+		}
+
+		public Question QuestionPrevious()
+		{
+			if (question > 0)
+				return Question(question--);
+			else
+				return Question(question);
+		}
+
+		private Question Question(int n = -1)
+		{
+			if (n < 0) n = question;
+
+			Question q = test.questions[n];
+			q.image = q.image;
+
+			current_question = q;
+
+			return q;
+		}
+
+		public void ReadAnswer(Question q, ToasterAnswer answer)
+		{
+			double rating_plus = 0;
+
+			int c = q.variants.Count;
+
+			for (int i = 0; i < c; i++)
+			{
+				if (answer.answers[i]) rating_plus += q.variants[i].rating;
+			}
+
+			rating += rating_plus;
+
+		}
+	}
 }
