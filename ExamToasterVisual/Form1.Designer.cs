@@ -280,6 +280,7 @@
 			this.rtbDescription.TabIndex = 1;
 			this.rtbDescription.ReadOnly = true;
 			//this.rtbDescription.Text = resources.GetString("rtbDescription.Text");
+			this.rtbDescription.BackColor = System.Drawing.SystemColors.Window;
 			// 
 			// pnImage
 			// 
@@ -332,6 +333,7 @@
 			this.btnNext.TabIndex = 5;
 			this.btnNext.Text = ">";
 			this.btnNext.UseVisualStyleBackColor = true;
+			this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
 			// 
 			// btnPrevious
 			// 
@@ -343,11 +345,12 @@
 			this.btnPrevious.TabIndex = 6;
 			this.btnPrevious.Text = "<";
 			this.btnPrevious.UseVisualStyleBackColor = true;
+			this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
 			// 
 			// openFileDialog
 			// 
 			this.openFileDialog.FileName = "test.tst";
-			this.openFileDialog.Filter = "Test files|.tst|All files|*.*";
+			this.openFileDialog.Filter = "Test files|*.tst|All files|*.*";
 			// 
 			// Form1
 			// 

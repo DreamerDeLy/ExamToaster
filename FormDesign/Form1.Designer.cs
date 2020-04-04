@@ -305,6 +305,7 @@
 			// 
 			// rtbDescription
 			// 
+			this.rtbDescription.BackColor = System.Drawing.SystemColors.Window;
 			this.rtbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.rtbDescription.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.rtbDescription.Location = new System.Drawing.Point(382, 6);
