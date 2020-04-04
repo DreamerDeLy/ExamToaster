@@ -23,6 +23,7 @@ namespace ExamToasterVisual
 	{
 		public string title { get; set; }
 		public double rating { get; set; }
+		public string image { get; set; }
 	}
 
 	public class Test

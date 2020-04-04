@@ -21,6 +21,7 @@ namespace ExamToasterVisual
 
 		public double rating = 0;
 		public int question = 0;
+		public int question_count = 0;
 
 		public bool started = false; 
 
@@ -57,22 +58,33 @@ namespace ExamToasterVisual
 		{
 			started = true;
 			question = 0;
+			question_count = test.questions.Count;
 		}
 
 		public Question QuestionNext()
 		{
-			if (question + 1 < test.questions.Count) 
+			if (question < test.questions.Count)
+			{
 				return Question(question++);
-			else 
+			}
+			else
+			{
 				return Question(question);
+			}
 		}
 
 		public Question QuestionPrevious()
 		{
-			if (question > 0)
-				return Question(question--);
-			else
+			question--;
+
+			if (question >= 0)
+			{
 				return Question(question);
+			}
+			else
+			{
+				return Question(question+1);
+			}
 		}
 
 		private Question Question(int n = -1)

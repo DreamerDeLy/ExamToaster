@@ -96,7 +96,14 @@ namespace ExamToasterVisual
 
 			MessageBox.Show($"rating:{toaster.rating}");
 
-			LoadQuestion(toaster.QuestionNext());
+			if (toaster.question < toaster.question_count)
+			{
+				LoadQuestion(toaster.QuestionNext());
+			}
+			else 
+			{
+				LoadResult();
+			}
 		}
 		private void btnPrevious_Click(object sender, EventArgs e) 
 		{
@@ -152,6 +159,30 @@ namespace ExamToasterVisual
 					rbs[i].Text = q.variants[i].title;
 				}
 			}
+		}
+
+		private void LoadResult()
+		{
+			pnlCheckbox.Visible = false;
+			pnlRadiobutton.Visible = false;
+
+			Rating rt = new Rating();
+
+			for (int i = 0; i < toaster.test.ratings.Count; i++)
+			{
+				Rating r = toaster.test.ratings[i];
+
+				if (toaster.rating > r.rating && i < toaster.test.ratings.Count-1)
+				{
+					continue;
+				}
+				else
+				{
+					rt = r;
+				}
+			}
+
+			MessageBox.Show($"rating:{rt.rating}, title:{rt.title}");
 		}
 	}
 }
