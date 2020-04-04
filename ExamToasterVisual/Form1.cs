@@ -179,10 +179,20 @@ namespace ExamToasterVisual
 				else
 				{
 					rt = r;
+					break;
 				}
 			}
 
-			MessageBox.Show($"rating:{rt.rating}, title:{rt.title}");
+			// MessageBox.Show($"rating:{rt.rating}, title:{rt.title}");
+
+			string title = rt.title;
+			string text = rt.description;
+
+			string image = toaster.extract_path +rt.image;
+
+			lblCaption.Text = title;
+			rtbDescription.Text = text;
+			pbImage.Image = Image.FromFile(image);
 		}
 	}
 }

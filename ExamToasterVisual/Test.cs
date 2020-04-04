@@ -22,6 +22,7 @@ namespace ExamToasterVisual
 	public class Rating
 	{
 		public string title { get; set; }
+		public string description { get; set; }
 		public double rating { get; set; }
 		public string image { get; set; }
 	}
