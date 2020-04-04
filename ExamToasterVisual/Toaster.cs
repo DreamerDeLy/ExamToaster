@@ -9,7 +9,7 @@ namespace ExamToasterVisual
 {
 	class ToasterAnswer
 	{
-		public List<bool> answers = new List<bool> { };
+		public List<bool> a = new List<bool> { };
 	}
 
 	class Toaster
@@ -23,9 +23,11 @@ namespace ExamToasterVisual
 		public int question = 0;
 		public int question_count = 0;
 
-		public bool started = false; 
+		public bool started = false;
 
 		public Question current_question;
+
+		private List<ToasterAnswer> answers = new List<ToasterAnswer> { };
 
 		public Toaster()
 		{
@@ -113,7 +115,7 @@ namespace ExamToasterVisual
 
 			for (int i = 0; i < c; i++)
 			{
-				if (answer.answers[i]) rating_plus += q.variants[i].rating;
+				if (answer.a[i]) rating_plus += q.variants[i].rating;
 			}
 
 			rating += rating_plus;

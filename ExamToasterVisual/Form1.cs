@@ -81,14 +81,14 @@ namespace ExamToasterVisual
 			{
 				for(int i = 0; i < cbs.Count; i++)
 				{
-					answer.answers.Add(cbs[i].Checked);
+					answer.a.Add(cbs[i].Checked);
 				}
 			}
 			else
 			{
 				for (int i = 0; i < rbs.Count; i++)
 				{
-					answer.answers.Add(rbs[i].Checked);
+					answer.a.Add(rbs[i].Checked);
 				}
 			}
 
