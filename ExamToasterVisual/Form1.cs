@@ -185,7 +185,7 @@ namespace ExamToasterVisual
 
 			// MessageBox.Show($"rating:{rt.rating}, title:{rt.title}");
 
-			string title = rt.title;
+			string title = "Your result is \"" + rt.title + "\"";
 			string text = rt.description;
 
 			string image = toaster.extract_path +rt.image;

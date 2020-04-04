@@ -38,13 +38,19 @@ namespace ExamToasterVisual
 
 			try
 			{
-				//if (Directory.Exists(extract_path)) Directory.Delete(extract_path, true);
+				if (Directory.Exists(extract_path)) Directory.Delete(extract_path, true);
 
-				//ZipFile.ExtractToDirectory(file_path, extract_path);
+				ZipFile.ExtractToDirectory(file_path, extract_path);
 
 				string jsonString = File.ReadAllText(extract_path + "test.json");
 
-				test = JsonSerializer.Deserialize<Test>(jsonString);
+				var options = new JsonSerializerOptions
+				{
+					ReadCommentHandling = JsonCommentHandling.Skip,
+					AllowTrailingCommas = true,
+				};
+
+				test = JsonSerializer.Deserialize<Test>(jsonString, options);
 
 				return true;
 			}
