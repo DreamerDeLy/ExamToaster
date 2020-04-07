@@ -94,7 +94,7 @@ namespace ExamToasterVisual
 				}
 			}
 
-			toaster.ReadAnswer(toaster.current_question, answer);
+			toaster.AddAnswer(toaster.current_question, answer);
 
 			// MessageBox.Show($"rating:{toaster.rating}");
 
@@ -174,6 +174,8 @@ namespace ExamToasterVisual
 		{
 			pnlCheckbox.Visible = false;
 			pnlRadiobutton.Visible = false;
+
+			toaster.CalculateAnswers();
 
 			Rating rt = new Rating();
 

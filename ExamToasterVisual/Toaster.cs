@@ -105,7 +105,13 @@ namespace ExamToasterVisual
 			return q;
 		}
 
-		public void ReadAnswer(Question q, ToasterAnswer answer)
+		public void AddAnswer(Question q, ToasterAnswer answer)
+		{
+			int n = GetQuestionIndex(q);
+			answers[n] = answer;
+		}
+
+		public double ReadAnswer(Question q, ToasterAnswer answer)
 		{
 			double rating_plus = 0;
 
@@ -116,10 +122,18 @@ namespace ExamToasterVisual
 				if (answer.a[i]) rating_plus += q.variants[i].rating;
 			}
 
-			rating += rating_plus;
+			return rating_plus;
+		}
 
-			int n = GetQuestionIndex(q);
-			answers[n] = answer;
+		public void CalculateAnswers()
+		{
+			rating = 0;
+			for (int i = 0; i < test.questions.Count; i++)
+			{
+				Question q = test.questions[i];
+				ToasterAnswer a = answers[i];
+				rating += ReadAnswer(q, a);
+			}
 		}
 
 		public int GetQuestionIndex(Question q)
