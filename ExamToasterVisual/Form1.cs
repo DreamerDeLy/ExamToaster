@@ -83,14 +83,14 @@ namespace ExamToasterVisual
 			{
 				for(int i = 0; i < cbs.Count; i++)
 				{
-					answer.a.Add(cbs[i].Checked);
+					answer.a[i] = cbs[i].Checked;
 				}
 			}
 			else
 			{
 				for (int i = 0; i < rbs.Count; i++)
 				{
-					answer.a.Add(rbs[i].Checked);
+					answer.a[i] = rbs[i].Checked;
 				}
 			}
 
@@ -119,6 +119,9 @@ namespace ExamToasterVisual
 
 			string image = toaster.extract_path + q.image;
 
+			int n = toaster.GetQuestionIndex(q);
+			// MessageBox.Show($" n:{n}, 0 - {toaster.answers[n].a[0]}, 1 - {toaster.answers[n].a[1]}");
+
 			lblCaption.Text = title;
 			rtbDescription.Text = text;
 			pbImage.Image = Image.FromFile(image);
@@ -128,11 +131,13 @@ namespace ExamToasterVisual
 			foreach (RadioButton r in rbs)
 			{
 				r.Visible = false;
+				r.Checked = false;
 			}
 
 			foreach (CheckBox c in cbs)
 			{
 				c.Visible = false;
+				c.Checked = false;
 			}
 
 			if (q.multiply)
@@ -146,6 +151,7 @@ namespace ExamToasterVisual
 				{
 					cbs[i].Visible = true;
 					cbs[i].Text = q.variants[i].title;
+					cbs[i].Checked = toaster.answers[n].a[i];
 				}
 			}
 			else
@@ -159,6 +165,7 @@ namespace ExamToasterVisual
 				{
 					rbs[i].Visible = true;
 					rbs[i].Text = q.variants[i].title;
+					rbs[i].Checked = toaster.answers[n].a[i];
 				}
 			}
 		}

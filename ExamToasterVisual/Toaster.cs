@@ -9,7 +9,12 @@ namespace ExamToasterVisual
 {
 	class ToasterAnswer
 	{
-		public List<bool> a = new List<bool> { };
+		public List<bool> a = new List<bool>(6);
+
+		public ToasterAnswer()
+		{
+			for (int i = 0; i < 6; i++) a.Add(false);
+		}
 	}
 
 	class Toaster
@@ -27,7 +32,7 @@ namespace ExamToasterVisual
 
 		public Question current_question;
 
-		private List<ToasterAnswer> answers = new List<ToasterAnswer> { };
+		public List<ToasterAnswer> answers = new List<ToasterAnswer>();
 
 		public Toaster()
 		{
@@ -113,9 +118,13 @@ namespace ExamToasterVisual
 
 			rating += rating_plus;
 
-			int n = test.questions.IndexOf(q);
-
+			int n = GetQuestionIndex(q);
 			answers[n] = answer;
+		}
+
+		public int GetQuestionIndex(Question q)
+		{
+			return test.questions.IndexOf(q);
 		}
 	}
 }
