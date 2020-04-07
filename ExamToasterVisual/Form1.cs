@@ -65,6 +65,8 @@ namespace ExamToasterVisual
 
 					btnNext.Visible = true;
 					btnPrevious.Visible = true;
+
+					if (toaster.test.allow_back) btnPrevious.Enabled = true;
 				}
 				else
 				{
@@ -94,9 +96,9 @@ namespace ExamToasterVisual
 
 			toaster.ReadAnswer(toaster.current_question, answer);
 
-			MessageBox.Show($"rating:{toaster.rating}");
+			// MessageBox.Show($"rating:{toaster.rating}");
 
-			if (toaster.question < toaster.question_count)
+			if (toaster.question < toaster.question_count-1)
 			{
 				LoadQuestion(toaster.QuestionNext());
 			}
@@ -107,7 +109,7 @@ namespace ExamToasterVisual
 		}
 		private void btnPrevious_Click(object sender, EventArgs e) 
 		{
-			toaster.QuestionPrevious();
+			LoadQuestion(toaster.QuestionPrevious());
 		}
 
 		private void LoadQuestion(Question q)

@@ -20,7 +20,7 @@ namespace ExamToasterVisual
 		public string extract_path = @".\extract\";
 
 		public double rating = 0;
-		public int question = 0;
+		public int question = -1;
 		public int question_count = 0;
 
 		public bool started = false;
@@ -54,6 +54,11 @@ namespace ExamToasterVisual
 
 				test = JsonSerializer.Deserialize<Test>(jsonString, options);
 
+				foreach (Question q in test.questions)
+				{
+					answers.Add(new ToasterAnswer());
+				}
+
 				return true;
 			}
 			catch
@@ -65,34 +70,22 @@ namespace ExamToasterVisual
 		public void StartTest()
 		{
 			started = true;
-			question = 0;
+			question = -1;
 			question_count = test.questions.Count;
 		}
 
 		public Question QuestionNext()
 		{
-			if (question < test.questions.Count)
-			{
-				return Question(question++);
-			}
-			else
-			{
-				return Question(question);
-			}
+			if (question < test.questions.Count) question++;
+
+			return Question(question);
 		}
 
 		public Question QuestionPrevious()
 		{
-			question--;
+			if (question > 0) question--;
 
-			if (question >= 0)
-			{
-				return Question(question);
-			}
-			else
-			{
-				return Question(question+1);
-			}
+			return Question(question);
 		}
 
 		private Question Question(int n = -1)
@@ -120,6 +113,9 @@ namespace ExamToasterVisual
 
 			rating += rating_plus;
 
+			int n = test.questions.IndexOf(q);
+
+			answers[n] = answer;
 		}
 	}
 }
