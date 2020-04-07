@@ -66,7 +66,7 @@ namespace ExamToasterVisual
 					btnNext.Visible = true;
 					btnPrevious.Visible = true;
 
-					if (toaster.test.allow_back) btnPrevious.Enabled = true;
+					btnPrevious.Enabled = false;
 				}
 				else
 				{
@@ -120,6 +120,10 @@ namespace ExamToasterVisual
 			string image = toaster.extract_path + q.image;
 
 			int n = toaster.GetQuestionIndex(q);
+
+			btnPrevious.Enabled = false;
+			if (n > 0 && toaster.test.allow_back) btnPrevious.Enabled = true;
+
 			// MessageBox.Show($" n:{n}, 0 - {toaster.answers[n].a[0]}, 1 - {toaster.answers[n].a[1]}");
 
 			lblCaption.Text = title;
