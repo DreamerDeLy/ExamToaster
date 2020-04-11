@@ -34,6 +34,7 @@ namespace ExamToasterVisual
 		public string author { get; set; }
 		public string image { get; set; }
 		public bool allow_back { get; set; }
+		public int randomize { get; set; }
 		public List<Question> questions { get; set; }
 		public List<Rating> ratings { get; set; }
 	}

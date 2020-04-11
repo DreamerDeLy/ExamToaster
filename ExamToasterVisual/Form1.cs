@@ -61,6 +61,12 @@ namespace ExamToasterVisual
 				{
 					toaster.StartTest();
 
+					if (toaster.test.randomize > 0)
+					{
+						MyExtentions.Shuffle(rbs);
+						MyExtentions.Shuffle(cbs);
+					}
+
 					LoadQuestion(toaster.QuestionNext());
 
 					btnNext.Visible = true;
@@ -208,6 +214,27 @@ namespace ExamToasterVisual
 			lblCaption.Text = title;
 			rtbDescription.Text = text;
 			pbImage.Image = Image.FromFile(image);
+		}
+
+
+		
+	}
+
+	public static class MyExtentions
+	{
+		private static Random rng = new Random();
+
+		public static void Shuffle<T>(this IList<T> list)
+		{
+			int n = list.Count;
+			while (n > 1)
+			{
+				n--;
+				int k = rng.Next(n + 1);
+				T value = list[k];
+				list[k] = list[n];
+				list[n] = value;
+			}
 		}
 	}
 }
